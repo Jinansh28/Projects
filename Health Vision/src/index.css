@@ -1,0 +1,168 @@
+/**
+ * =====================================
+ *         HEALTH VISION DESIGN SYSTEM
+ * =====================================
+ * 
+ * Project: Health Vision - AI Dermatological Screening
+ * Type: Medical Healthcare Platform
+ * 
+ * DESIGN PHILOSOPHY
+ * -----------------
+ * Core Principle: Trust through clarity and medical professionalism
+ * Design Style: Medical Minimal - Clean, scientific, reassuring
+ * Emotion Goal: Confidence, trust, and approachability for students
+ * 
+ * COLOR SYSTEM (HSL FORMAT)
+ * -------------
+ * Primary: 210 100% 45% - Medical blue for trust and professionalism
+ * Secondary: 160 35% 45% - Calming teal for health and balance  
+ * Success: 142 76% 36% - Medical green for positive results
+ * Warning: 38 92% 50% - Amber for caution and attention
+ * Error: 0 84% 60% - Medical red for urgent attention
+ * 
+ * TYPOGRAPHY
+ * ----------
+ * Display: Clean sans-serif for medical clarity
+ * Body: Readable system fonts for accessibility
+ * 
+ * INTERACTIONS
+ * ------------
+ * Transitions: 200ms for medical precision
+ * States: Complete coverage with medical-grade feedback
+ * Accessibility: WCAG AA compliant for universal access
+ * ====================================
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 160 35% 45%;
+    --secondary-foreground: 160 10% 98%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 98%;
+    --accent-foreground: 222 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 45%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --radius: 0.75rem;
+    
+    /* Medical specific colors */
+    --medical-blue: 210 100% 45%;
+    --medical-teal: 160 35% 45%;
+    --medical-green: 142 76% 36%;
+    --medical-amber: 38 92% 50%;
+    --medical-red: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 60%;
+    --primary-foreground: 222 84% 4.9%;
+    --secondary: 160 35% 55%;
+    --secondary-foreground: 222 84% 4.9%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 210 100% 60%;
+    --success: 142 76% 46%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Medical UI Patterns */
+  .medical-card {
+    @apply bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  .confidence-high {
+    @apply text-green-600 bg-green-50 border-green-200;
+  }
+  
+  .confidence-medium {
+    @apply text-amber-600 bg-amber-50 border-amber-200;
+  }
+  
+  .confidence-low {
+    @apply text-red-600 bg-red-50 border-red-200;
+  }
+  
+  .analysis-result {
+    @apply bg-gradient-to-br from-blue-50 to-teal-50 border border-blue-200 rounded-xl p-6;
+  }
+  
+  .medical-button {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+  
+  .upload-zone {
+    @apply border-2 border-dashed border-muted-foreground/25 hover:border-primary/50 bg-muted/20 hover:bg-muted/40 transition-all duration-200 rounded-xl;
+  }
+  
+  /* Accessibility improvements */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+}
+
+/* Loading animations */
+@keyframes pulse-medical {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-medical {
+  animation: pulse-medical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth transitions for medical UI */
+.medical-transition {
+  @apply transition-all duration-200 ease-out;
+}
+
+/* Focus states for accessibility */
+.medical-focus {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
